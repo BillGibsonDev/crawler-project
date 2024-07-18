@@ -55,6 +55,22 @@ test('getURLsFromHTML relative URLs converted to absolute', () => {
     expect(actual).toEqual(expected)
 })
 
+test('getURLsFromHTML invalid', () => {
+    const inputHTMLBody = `
+    <html>
+        <body>
+            <a href="invalid">
+                Boot.dev Blog
+            </a>
+        </body>
+    </html>
+    `
+    const inputBaseURL = "http://blog.boot.dev"
+    const actual = getURLsFromHTML(inputHTMLBody, inputBaseURL)
+    const expected = []
+    expect(actual).toEqual(expected)
+})
+
 test('getURLsFromHTML multiple a tags', () => {
     const inputHTMLBody = `
     <html>
@@ -76,3 +92,4 @@ test('getURLsFromHTML multiple a tags', () => {
     const expected = ["http://blog.boot.dev/path/", "http://blog.boot.dev/path", "http://blog.boot.dev/"]
     expect(actual).toEqual(expected)
 })
+
