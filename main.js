@@ -1,7 +1,6 @@
 import { crawlPage } from "./crawl.js"
 import { printReport } from "./report.js"
 
-// https://wagslane.dev
 async function main(){
     if(process.argv.length < 3){
         console.log("no website provided")
